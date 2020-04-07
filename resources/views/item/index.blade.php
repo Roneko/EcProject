@@ -2,6 +2,8 @@
 
 @section('content')
 <h4>商品一覧</h4>
+@include('layouts.alert')
+@include('layouts.error')
 <table class="table">
     <thead class="text-primary">
         <tr>

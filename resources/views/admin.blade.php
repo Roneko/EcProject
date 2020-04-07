@@ -23,7 +23,7 @@
 <body class="">
   <div class="wrapper ">
     <!-- sidebar -->
-    <div class="sidebar" data-color="blue">
+    <div class="sidebar" data-color="yellow">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
@@ -34,62 +34,62 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+            <li>
+                <a href="{{ route('category.create') }}">
+                  <i class="now-ui-icons users_single-02"></i>
+                  <p>カテゴリー追加</p>
+                </a>
+              </li>
+              <li>
+              <a href="{{ route('category.index') }}">
+                  <i class="now-ui-icons users_single-02"></i>
+                  <p>カテゴリー一覧</p>
+                </a>
+              </li>
           <li>
-            <a href="{{ route('counselor.create') }}">
+            <a href="{{ route('item.create') }}">
               <i class="now-ui-icons users_single-02"></i>
               <p>商品追加</p>
             </a>
           </li>
           <li>
-            <a href="{{ route('counselor.index') }}">
+            <a href="{{ route('item.index') }}">
               <i class="now-ui-icons users_single-02"></i>
               <p>商品一覧</p>
             </a>
           </li>
           <li class="">
-            <a href="{{ route('record.create') }}">
+            <a href="#">
               <i class="now-ui-icons files_paper"></i>
               <p>新着追加</p>
             </a>
           </li>
           <li class="">
-              <a href="{{ route('record.index') }}">
+              <a href="#">
                 <i class="now-ui-icons files_paper"></i>
                 <p>新着一覧</p>
               </a>
           </li>
           <li class="">
-              <a href="{{ route('benefit.create') }}">
+              <a href="#">
                 <i class="now-ui-icons business_badge"></i>
                 <p>おすすめ追加</p>
               </a>
           </li>
           <li class="">
-              <a href="{{ route('benefit.index') }}">
+              <a href="#">
                 <i class="now-ui-icons business_badge"></i>
                 <p>おすすめ一覧</p>
               </a>
           </li>
-          <li class="">
-            <a href="{{ route('benefit.index') }}">
-              <i class="now-ui-icons business_badge"></i>
-              <p>スタイリング追加</p>
-            </a>
-        </li>
         <li class="">
-            <a href="{{ route('benefit.index') }}">
-              <i class="now-ui-icons business_badge"></i>
-              <p>スタイリング一覧</p>
-            </a>
-        </li>
-        <li class="">
-            <a href="{{ route('benefit.index') }}">
+            <a href="#">
               <i class="now-ui-icons business_badge"></i>
               <p>ニュース追加</p>
             </a>
         </li>
         <li class="">
-            <a href="{{ route('benefit.index') }}">
+            <a href="#">
               <i class="now-ui-icons business_badge"></i>
               <p>ニュース一覧</p>
             </a>
@@ -103,7 +103,11 @@
       </div>
     </div>
   </div>
+  
+
   <!--   Core JS Files   -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
   <!--  Google Maps Plugin    -->
   <!-- Chart JS -->
