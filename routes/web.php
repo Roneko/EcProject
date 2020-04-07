@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,24 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-    Auth::routes();
-    
+
     //管理者画面
-    Route::get('/item', 'admin\ItemController@index')->name('item.index');
-    Route::get('/item/create', 'admin\ItemController@create')->name('item.create');
-    Route::GET('/item/edit', 'admin\ItemController@edit')->name('item.edit');
-    Route::PATCH('/item/updata', 'admin\ItemController@updata')->name('item.updata');
-    Route::DELETE('/item/destroy', 'admin\ItemController@destroy')->name('item.destroy');
+    Route::GET('/item', 'admin\ItemController@index')->name('item.index');
+    Route::GET('/item/create', 'admin\ItemController@create')->name('item.create');
+    Route::GET('/item/{item}', 'admin\ItemController@edit')->name('item.edit');
+    Route::PATCH('/item/{item}', 'admin\ItemController@update')->name('item.update');
+    Route::DELETE('/item/{item}', 'admin\ItemController@destroy')->name('item.destroy');
     Route::POST('/item/confirm', 'admin\ItemController@confirm')->name('item.confirm');
     Route::POST('/item/store', 'admin\ItemController@store')->name('item.store');
 
-    Route::get('/category', 'admin\CategoryController@index')->name('category.index');
-    Route::get('/category/create', 'admin\CategoryController@create')->name('category.create');
-    Route::get('/category/edit', 'admin\CategoryController@edit')->name('category.edit');
-    Route::patch('/category/updata', 'admin\CategoryController@updata')->name('category.updata');
-    Route::delete('/category/destroy', 'admin\CategoryController@destroy')->name('category.destroy');
-    Route::post('/category/confirm', 'admin\CategoryController@confirm')->name('category.confirm');
-    Route::post('/category/store', 'admin\CategoryController@store')->name('category.store');
+    Route::GET('/category', 'admin\CategoryController@index')->name('category.index');
+    Route::GET('/category/create', 'admin\CategoryController@create')->name('category.create');
+    Route::GET('/category/{category}', 'admin\CategoryController@edit')->name('category.edit');
+    Route::PATCH('/category/{category}', 'admin\CategoryController@update')->name('category.update');
+    Route::DELETE('/category/{category}', 'admin\CategoryController@destroy')->name('category.destroy');
+    Route::POST('/category/confirm', 'admin\CategoryController@confirm')->name('category.confirm');
+    Route::POST('/category/store', 'admin\CategoryController@store')->name('category.store');
     
     //マイページ
     Route::GET('/users/{user_id}', 'user\CartsController@show')->name('user.show');
@@ -47,8 +47,16 @@ use Illuminate\Support\Facades\Route;
     //商品詳細ページ
     Route::GET('/ecsite/{user_id}', 'user\ItemController@show')->name('ecsite.show');
 
-    //ログイン画面　
-    Route::GET('/login', 'LoginController@showLoginForm')->name('login.showLoginForm');
-    Route::GET('/register', 'RegisterController@index')->name('register.index');
 
+        //ログイン画面　
+        Route::GET('/login', 'LoginController@showLoginForm')->name('login.showLoginForm');
+        Route::GET('/register', 'RegisterController@index')->name('register.index');
+
+    //ホーム画面
+    Route::get('/', 'HomeController@index')->name('home');
+    
+
+
+
+Auth::routes();
 
