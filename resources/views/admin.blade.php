@@ -15,11 +15,13 @@
     <!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{ asset('css/now-ui-dashboard.css?v=1.3.0')}}" rel="stylesheet" />
-    <link href="{{ asset('scss/now-ui-dashboard.scss')}}" rel="stylesheet" />
+    <link href="{{ asset('scss/now-ui-dashboard.scss')}}" rel="stylesheet" /> 
+    <link href="{{ asset('/css/item.css')}}" rel="stylesheet" />
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <!-- <link href="../assets/demo/demo.css" rel="stylesheet" /> -->
 </head>
+
 <body class="">
   <div class="wrapper ">
     <!-- sidebar -->
@@ -70,54 +72,15 @@
                 <p>新着一覧</p>
               </a>
           </li>
-          <li class="">
-              <a href="#">
-                <i class="now-ui-icons business_badge"></i>
-                <p>おすすめ追加</p>
-              </a>
-          </li>
-          <li class="">
-              <a href="#">
-                <i class="now-ui-icons business_badge"></i>
-                <p>おすすめ一覧</p>
-              </a>
-          </li>
-        <li class="">
-            <a href="#">
-              <i class="now-ui-icons business_badge"></i>
-              <p>ニュース追加</p>
-            </a>
-        </li>
-        <li class="">
-            <a href="#">
-              <i class="now-ui-icons business_badge"></i>
-              <p>ニュース一覧</p>
-            </a>
-        </li>
         </ul>
       </div>
-    </div>
+    </div>　
     <div class="main-panel pt-5 h-100" id="main-panel">
       <div class="content">
        @yield('content')
       </div>
     </div>
   </div>
-  
-
-  <!--   Core JS Files   -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-
-  <!--  Google Maps Plugin    -->
-  <!-- Chart JS -->
-  <!--  Notifications Plugin    -->
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  {{-- <script>
-    // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-   
-    });
-  </script> --}}
 </body>
+@yield('script')
 </html>
