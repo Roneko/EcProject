@@ -41,6 +41,8 @@ class CategoryController extends Controller
         return view('category.confirm', compact('data'));
     }
 
+    
+
     public function store(Request $request)
     {
         $data = $request->session()->get('data');
@@ -66,11 +68,11 @@ class CategoryController extends Controller
             ->with('message', __('編集しました。'));
     }
 
-    public function destroy($id)
+    public function destroy(categories $category)
     {
-        categories::find($id)->delete();
+        $category->delete();
 
         return redirect()->route('category.index')
-            ->with('message', __($id.'を削除しました。'));
+                          ->with('message', __($category->name.'の情報を削除しました。'));
     }
 }
