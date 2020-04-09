@@ -32,7 +32,10 @@
         <div class="col-md-5 pr-1">
                 <div class="form-group">
                     <label>カテゴリー</label>
-        <div class="col-md-5 pr-1">
+                    {{ Form::select('category_name', \App\categories::select('id', 'name')
+                        ->get()->pluck('name','id')->prepend( "選択してください", ""), null, ['class' => 'form-control']) }}
+    
+            <div class="col-md-5 pr-1">
             <div class="form-group">
                 <label>商品画像</label>
                 <div class="btn btn-primary">
@@ -50,7 +53,9 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-info btn-fill pull-right">作成</button>
+    {{ Form::submit('確認', ['class' => 'btn btn-info btn-block']) }}
+    {{-- <button class="btn btn-info float-right" type="submit">確認</button> --}}
+
     <div class="clearfix"></div>
 </div>
 </form>
