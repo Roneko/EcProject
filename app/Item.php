@@ -11,5 +11,7 @@ class Item extends Model
     public function category(){
         return $this->belongsTo('App\categories');
     }
-
+    public function item_users(){
+        return $this->hasMany('App\item_user');
+    }
 }

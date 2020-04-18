@@ -11,13 +11,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        User::create([
-            'name' => '管理者',
-            'email' => 'info@eterein.com',
-            'password' => bcrypt('201777'),
-        ]);
+{
 
-        $this->call(ItemTableSeeder::class);
-        }
+
+    }
 }

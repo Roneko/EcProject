@@ -34,7 +34,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input type="hidden" value="{{ $data['id'] }}">
-                                <h6>在庫：{{ $data['category_name'] }}</h6>
+                                <h6>{{ $data['category_name'] }}</h6>
                                </div>
                         </div>
                      </div>

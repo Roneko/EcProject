@@ -1,0 +1,7 @@
+.news{
+    margin: 0 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content:space-between;
+}

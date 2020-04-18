@@ -22,7 +22,6 @@ class ItemController extends Controller
 
     public function edit(Item $item)
     {
-                
         return view('item.edit', compact('item'));
     }
 

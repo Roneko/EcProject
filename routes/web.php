@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
     
     //マイページ
     Route::GET('/users/{user_id}', 'user\CartsController@show')->name('user.show');
-    Route::GET('/users/{user_id}', 'user\CartsController@edit')->name('user.edit');
+    // Route::GET('/users/{user_id}', 'user\CartsController@edit')->name('user.edit');
 
     //カートに保存
     Route::POST('/ecsite', 'user\CartsController@store')->name('user.store'); 
@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\Route;
     //サイト表示 商品一覧
     Route::GET('/ecsite', 'user\ItemController@index')->name('ecsite.index');
     //商品詳細ページ
-    Route::GET('/ecsite/{user_id}', 'user\ItemController@show')->name('ecsite.show');
+    Route::GET('/ecsite/{item}', 'user\ItemController@show')->name('ecsite.show');
 
 
         //ログイン画面　
