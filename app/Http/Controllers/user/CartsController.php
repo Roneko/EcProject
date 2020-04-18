@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\item_user;
+use App\ItemUser;
 use Illuminate\Http\Request;
 use App\User;
 use App\Item;
@@ -25,11 +25,11 @@ class CartsController extends Controller
 
     public function store(Request $request)
     {
-        item_user::create([
+        ItemUser::create([
             'user_id' => Auth::user()->id,
             'item_id' => $request->post('item_id'),
-        ],
-            ['quantity' => item_user::selectRaw('quantity + ' . $request->post('quantity')),
+            'quantity' => $request->quantity,
+            'purchased' => false,
         ]);
         return redirect('/');
     }
