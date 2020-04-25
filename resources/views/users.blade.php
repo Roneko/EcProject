@@ -18,7 +18,7 @@
   <body>
     <header class="header">
       <div class ="header__bar row">
-        <h1 class ="grid-6"><a href='/'>town</a></h1>
+        <h1 class ="grid-6"><a href='/ecsite'>town</a></h1>
         @if(Auth::check())
         <div class="user_nav grid-6">
             <span>

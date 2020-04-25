@@ -33,11 +33,13 @@ use Illuminate\Support\Facades\Route;
     Route::POST('/category/store', 'admin\CategoryController@store')->name('category.store');
     
     //マイページ
-    Route::GET('/users/{user_id}', 'user\CartsController@show')->name('user.show');
+    Route::GET('/users/{user_id}', 'user\CartsController@show')->name('carts.show');
+    Route::DELETE('/users/{user_id}', 'user\CartsController@destroy')->name('carts.destroy');
+
     // Route::GET('/users/{user_id}', 'user\CartsController@edit')->name('user.edit');
 
     //カートに保存
-    Route::POST('/ecsite', 'user\CartsController@store')->name('user.store'); 
+    Route::POST('/ecsite', 'user\CartsController@store')->name('carts.store'); 
     //購入処理
     Route::POST('/ecsite/{user_id}/success', '\CartsController@purchased')->name('user.purchased');
 

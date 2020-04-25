@@ -70,7 +70,7 @@ class ItemController extends Controller
             $read_temp_path = $data['read_temp_path'];
     
             $filename = str_replace('public/temp/', '', $temp_path);
-            $storage_path = 'public/images/benefit/'.$filename;
+            $storage_path = 'public/images/item/'.$filename;
 
             $request->session()->get('data');
 

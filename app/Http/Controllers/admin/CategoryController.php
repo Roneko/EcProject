@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\categories;
+use App\Category;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 
@@ -12,12 +12,12 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = categories::all();
+        $categories = Category::all();
 
         return view('category.index', compact('categories'));
     }
 
-    public function edit(categories $category)
+    public function edit(Category $category)
     {
                 
         return view('category.edit', compact('category'));
@@ -50,7 +50,7 @@ class CategoryController extends Controller
 
         $name = $data['name'];
 
-        categories::create([
+        Category::create([
             'name' => $name,
         ]);
 
@@ -68,7 +68,7 @@ class CategoryController extends Controller
             ->with('message', __('編集しました。'));
     }
 
-    public function destroy(categories $category)
+    public function destroy(Category $category)
     {
         $category->delete();
 

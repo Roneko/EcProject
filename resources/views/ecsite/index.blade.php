@@ -1,9 +1,11 @@
 @extends('users')
 
 @section('content')
-@if(Session::has('flash_message'))
-<div class="alert alert-success">
-    {{ session('flash_message') }}
+@if(Session::has('message'))
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4><i class="icon fa fa-check"></i>失敗</h4>
+    {{ session('message') }}
 </div>
 @endif
 @foreach ($items as $item)
@@ -17,7 +19,7 @@
         <h4>{{ $item->text }}</h4>
     </div>
     @auth
-<form method="POST" action="{{ route('user.store') }}" class="form-inline m-1">
+<form method="POST" action="{{ route('carts.store') }}" class="form-inline m-1">
         {{ csrf_field() }}
             <select name="quantity" class="form-control col-md-2 mr-1">
                 <option selected>1</option>
