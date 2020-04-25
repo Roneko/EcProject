@@ -8,12 +8,12 @@ class ItemUser extends Model
 {
     protected $fillable = ['user_id','item_id','quantity','purchased'];
 
-    protected $table = 'item_user';
+    protected $table = 'item_users';
 
     public function item(){
-        return $this->belongsTo('App\Items');
+        return $this->belongsTo('App\Item');
     }
     public function user(){
-        return $this->belongsTo('App\Users');
+        return $this->belongsTo('App\User');
     }
 }

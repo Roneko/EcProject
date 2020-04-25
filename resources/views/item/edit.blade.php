@@ -18,7 +18,7 @@
                     <img style="width:80%;height:auto;"src="{{ asset($item->path) }}" alt="img" class="item-content__image">
                     <h4> {{ $item->price }}円</h4>
                     <p>{{ $item->quantity }}個</p>
-                    <h4>{{ App\categories::find($item->category_id)->name }}</h4>
+                    <h4>{{ App\category::find($item->category_id)->name }}</h4>
                     <h4>{{ $item->text }}</h4>
                 </div>
                 <form method="POST" action="{{ route('item.update', $item)}}" enctype="multipart/form-data" class="col-6">
@@ -47,7 +47,7 @@
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
                                 <label>カテゴリー</label>
-                                {{ Form::select('category_name', \App\categories::select('id', 'name')
+                                {{ Form::select('category_name', \App\category::select('id', 'name')
                                     ->get()->pluck('name','id')->prepend( "選択してください", ""), null, ['class' => 'form-control']) }}
                             </div>
                         </div>

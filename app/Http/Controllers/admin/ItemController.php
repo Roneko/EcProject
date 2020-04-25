@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\categories;
+use App\category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Item;
@@ -45,7 +45,7 @@ class ItemController extends Controller
         $text = $post_data['text'];
         $id = $post_data['category_name'];
         //categoriesテーブルのidを全取得させ、idと一致するnameカラムを取得している↓
-        $category_name = categories::where('id', $id)->first()->name;
+        $category_name = category::where('id', $id)->first()->name;
 
         $data = array(
             'temp_path' => $temp_path,

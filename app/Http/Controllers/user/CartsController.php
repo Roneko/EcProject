@@ -41,12 +41,12 @@ class CartsController extends Controller
         
     public function show()
     {
-        $items = ItemUser::select('item_user.*', 'items.id', 'items.price','items.quantity', 'items.path')
+        $items = ItemUser::select('item_users.*', 'items.id', 'items.price','items.quantity', 'items.path')
             ->where('user_id', Auth::user()->id)
-            ->join('items', 'items.id','=','item_user.item_id')
+            ->join('items', 'items.id','=','item_users.item_id')
             ->get();
             //在庫表示させたい
-            
+
         return view('carts.show', ['items' => $items]);
     }
 

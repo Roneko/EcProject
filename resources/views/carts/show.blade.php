@@ -17,7 +17,7 @@
         <form method="POST" action="{{ route('carts.store') }}" class="form-inline m-1">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
-            <input type="text" class="form-control" name="quantity" value="{{ $item->quantity }}">
+            <input type="text" class="form-control" name="quantity" value="{{ ItemUser::where([['user_id',1],['purchased',0]])->get(); }}">
                 <div class="row">
                     <div class="col-md-10">
                         <button class="btn btn-info float-right" type="submit">編集</button>

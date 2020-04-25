@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
 
     public function item_users(){
-        return $this->hasMany('App\item_users');
+        return $this->hasMany('App\ItemUser');
     }
 }

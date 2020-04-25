@@ -32,7 +32,7 @@
         <div class="col-md-5 pr-1">
                 <div class="form-group">
                     <label>カテゴリー</label>
-                    {{ Form::select('category_name', \App\categories::select('id', 'name')
+                    {{ Form::select('category_name', \App\category::select('id', 'name')
                         ->get()->pluck('name','id')->prepend( "選択してください", ""), null, ['class' => 'form-control']) }}
     
             <div class="col-md-5 pr-1">
