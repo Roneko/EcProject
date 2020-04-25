@@ -9,9 +9,9 @@ class Item extends Model
     protected $fillable = ['category_id','name', 'price','quantity', 'path', 'text'];
 
     public function category(){
-        return $this->belongsTo('App\category');
+        return $this->belongsTo('App\categories');
     }
     public function item_users(){
-        return $this->hasMany('App\item_user');
+        return $this->hasMany('App\item_users');
     }
 }

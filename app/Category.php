@@ -9,6 +9,6 @@ class Category extends Model
     protected $fillable = ['name'];
 
     public function item(){
-        return $this->hasMany('App\Item');
+        return $this->hasMany('App\Items');
     }
 }

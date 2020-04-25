@@ -11,9 +11,9 @@ class ItemUser extends Model
     protected $table = 'item_user';
 
     public function item(){
-        return $this->belongsTo('App\Item');
+        return $this->belongsTo('App\Items');
     }
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Users');
     }
 }

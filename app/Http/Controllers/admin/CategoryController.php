@@ -13,48 +13,48 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-
+        
         return view('category.index', compact('categories'));
     }
-
-    public function edit(Category $category)
+    
+    public function edit(Categories $category)
     {
-                
+        
         return view('category.edit', compact('category'));
     }
-
+    
     public function create()
     {
         return view('category.create');
     }
-
+    
     public function confirm(CategoryRequest $request)
     {
         $post_data = $request->input('name');
-
+        
         $data = array(
             'name' => $post_data,
         );
-
+        
         $request->session()->put('data', $data);
-
+        
         return view('category.confirm', compact('data'));
     }
-
     
-
+    
+    
     public function store(Request $request)
     {
         $data = $request->session()->get('data');
         $request->session()->forget('data');
-
+        
         $name = $data['name'];
-
+        
         Category::create([
             'name' => $name,
-        ]);
-
-        return redirect()->route('category.create')
+            ]);
+            
+            return redirect()->route('category.create')
         ->with('message', __($name.'を追加しました。'));
     }
 
