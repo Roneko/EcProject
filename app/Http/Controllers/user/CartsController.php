@@ -41,13 +41,11 @@ class CartsController extends Controller
         
     public function show()
     {
-        $items = ItemUser::select('item_users.*', 'items.id', 'items.price','items.quantity', 'items.path')
-            ->where('user_id', Auth::user()->id)
-            ->join('items', 'items.id','=','item_users.item_id')
-            ->get();
+        $item_users = ItemUser::where([['user_id',1],['purchased',0]])->get();
+        
             //在庫表示させたい
 
-        return view('carts.show', ['items' => $items]);
+        return view('carts.show', ['item_users' => $item_users]);
     }
 
     public function destroy(ItemUser $itemUser,Item $item)

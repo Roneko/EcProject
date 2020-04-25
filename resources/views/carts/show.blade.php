@@ -5,24 +5,23 @@
 @section('content')
 @include('layouts.alert')
 @include('layouts.error')
-@foreach ($items as $item)
-    <h1>{{ $item->name }}</h1>
+@foreach ($item_users as $item_user)
+    <h1>{{ $item_user->item->name }}</h1>
     </div>
     <div class="news">
-        <img style="width:80%;height:auto;"src="{{ asset($item->path) }}" alt="img" class="item-content__image">
-        <h4> {{ $item->price }}円</h4>
-        <p>{{ $item->quantity }}個</p>
-        <h4>{{ $item->text }}</h4>
+        <img style="width:80%;height:auto;"src="{{ asset($item_user->item->path) }}" alt="img" class="item-content__image">
+        <h4> {{ $item_user->$item->price }}円</h4>
+        <h4>{{ $item_user->$item->text }}</h4>
 
-        <form method="POST" action="{{ route('carts.store') }}" class="form-inline m-1">
+        <form method="POST" action="{{ route('carts.updata') }}" class="form-inline m-1">
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
-            <input type="text" class="form-control" name="quantity" value="{{ ItemUser::where([['user_id',1],['purchased',0]])->get(); }}">
+            <input type="text" class="form-control" name="quantity" value="{{ $item_user->quantity }}">
                 <div class="row">
                     <div class="col-md-10">
                         <button class="btn btn-info float-right" type="submit">編集</button>
                     </div>
-                <input type="hidden" name="item_id" value="{{ $item->id }}">
+                <input type="hidden" name="item_id" value="{{ $item_user->item_id }}">
                 <div class="col-md-2">
                     <button type="button" class="delete-confirm btn btn-success" value="A002" data-toggle="modal" data-target="#confirm-delete">削除</button>
                 </div>
