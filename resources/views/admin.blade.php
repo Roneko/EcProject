@@ -66,6 +66,12 @@
               <p>売り上げ</p>
             </a>
           </li>
+          <li>
+              <a href="{{ route('sales.index') }}">
+                <i class="now-ui-icons files_paper"></i>
+                <p>カート情報</p>
+              </a>
+            </li>
         </ul>
       </div>
     </div>　
