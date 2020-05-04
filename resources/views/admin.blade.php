@@ -60,17 +60,11 @@
               <p>商品一覧</p>
             </a>
           </li>
-          <li class="">
-            <a href="#">
+          <li>
+            <a href="{{ route('sales.index') }}">
               <i class="now-ui-icons files_paper"></i>
-              <p>新着追加</p>
+              <p>売り上げ</p>
             </a>
-          </li>
-          <li class="">
-              <a href="#">
-                <i class="now-ui-icons files_paper"></i>
-                <p>新着一覧</p>
-              </a>
           </li>
         </ul>
       </div>

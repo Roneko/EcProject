@@ -3,6 +3,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      
     <title>town</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -17,34 +22,30 @@
 
   <body>
     <header class="header">
-      <div class ="header__bar row">
-        <h1 class ="grid-6"><a href='/ecsite'>town</a></h1>
-        @if(Auth::check())
-        <div class="user_nav grid-6">
-            <span>
-                {{Auth::user()->name}}
-                <ul>
-                <li>
-                    <a href="/users/{{Auth::user()->id}}">マイページ</a>
-                    {{Form::open(['url' => "/logout", 'method' => 'post', 'id' => 'logout'])}}
-                    {{Form::close()}}
-                    <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout').submit();">ログアウト</a>
-                </li>
-                </ul>
-            </span>
-
-            <a href="/" class="post">商品一覧</a>
-            </div>
-            @else
-            <div class="grid-6">
-                <a href="/login" class="post">ログイン</a>
-                <a href="/register" class="post">新規登録</a>
-          </div>
-        @endif
+      <div class="container">
+        <nav class="navber navber-expand navber-light">
+          <h1><a href='/ecsite' class ="navber-brand">town</a></h1>
+          @if(Auth::check())
+          {{Auth::user()->name}}
+            <ul class="navber-nav">
+              <li class="nav-item">
+                <a href="/users" class="nav-link">マイページ</a>
+                {{Form::open(['url' => "/logout", 'method' => 'post', 'id' => 'logout'])}}
+                {{Form::close()}}
+                <a href="/logout" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout').submit();">ログアウト</a>
+              </li>
+              <li class="nav-item"><a href="/ecsite" class="nav-link">商品一覧</a></li>
+              <li class="nav-item"><a href="/users/history" class="nav-link">購入履歴</a></li>
+          @else
+            <li class="nav-item"><a href="/login" class="nav-link">ログイン</a></li>
+            <li class="nav-item"><a href="/register" class="nav-link">新規登録</a></li>
+            </ul>
+          @endif
+        </nav>
       </div>
     </header>
 
+    @yield('script')
     @yield('content')
   </body>
-  @yield('script')
 </html>
