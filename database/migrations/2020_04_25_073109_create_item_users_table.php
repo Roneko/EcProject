@@ -20,6 +20,7 @@ class CreateItemUsersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('item_id')->references('id')->on('items');
             $table->integer('quantity');
+            $table->integer('price');
             $table->boolean('purchased');
 
             $table->timestamps();

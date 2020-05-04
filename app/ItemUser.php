@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ItemUser extends Model
 {
-    protected $fillable = ['user_id','item_id','quantity','purchased'];
+    protected $fillable = ['user_id','item_id','quantity','purchased','price'];
 
     protected $table = 'item_users';
 
