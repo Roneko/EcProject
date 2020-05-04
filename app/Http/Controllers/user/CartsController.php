@@ -30,6 +30,7 @@ class CartsController extends Controller
             {
                 $item_user = ItemUser::where([['user_id',Auth::id()],['item_id',$item->id],['purchased',0]])->first();
                 $item_user->quantity += $request->quantity;
+                $item_user->price += $item->price*$request->quantity;
                 $item_user->save();
 
             }else{
@@ -38,6 +39,7 @@ class CartsController extends Controller
                 'user_id' => Auth::user()->id,
                 'item_id' => $item->id,
                 'quantity' => $request->quantity,
+                'price' => $item->price*$request->quantity,
                 'purchased' => false,
                 ]);
             }
@@ -69,6 +71,7 @@ class CartsController extends Controller
             $item_user->delete();
         }else{
             $item_user->quantity=$request->quantity; //1以上なら入力された値でアップデート
+            $item_user->price=$item->price*$request->quantity;
             $item_user->save();
         }
 
