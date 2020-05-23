@@ -67,7 +67,7 @@
             </a>
           </li>
           <li>
-              <a href="{{ route('sales.index') }}">
+              <a href="{{ route('sales.carts') }}">
                 <i class="now-ui-icons files_paper"></i>
                 <p>カート情報</p>
               </a>
